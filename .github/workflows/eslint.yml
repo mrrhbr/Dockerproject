@@ -1,4 +1,4 @@
-name: eslint
+name: Super-Linter
 
 on: push
 
@@ -11,8 +11,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Run lintjs
-        uses: github/eslint@v3
+      - name: Run Super-Linter
+        uses: github/super-linter@u3 
         env:
           DEFUALT_BRANCH: main
           GITHUB_TOCKEN: ${{secrets.GITHUB}}
