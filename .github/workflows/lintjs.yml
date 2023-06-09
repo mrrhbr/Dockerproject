@@ -2,3 +2,18 @@ name: lintjs
 
 on: push
 
+
+jobs:
+  lintjs:
+    name: lint code base
+    runs-on: macos
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run lintjs
+        uses: github/lintjs@v3
+        env:
+          DEFUALT_BRANCH: main
+          GITHUB_TOCKEN: ${{secrets.GITHUB}}
+  
