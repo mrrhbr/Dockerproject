@@ -1,10 +1,10 @@
-name: lintjs
+name: eslint
 
 on: push
 
 
 jobs:
-  lintjs:
+  eslint:
     name: lint code base
     runs-on: macos
     steps:
@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run lintjs
-        uses: github/lintjs@v3
+        uses: github/eslint@v3
         env:
           DEFUALT_BRANCH: main
           GITHUB_TOCKEN: ${{secrets.GITHUB}}
