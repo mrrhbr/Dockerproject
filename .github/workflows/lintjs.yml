@@ -1,0 +1,4 @@
+name: lintjs
+
+on: push
+
