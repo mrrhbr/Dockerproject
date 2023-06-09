@@ -6,7 +6,7 @@ on: push
 jobs:
   eslint:
     name: lint code base
-    runs-on: macos
+    runs-on: ubuntu-lastest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
