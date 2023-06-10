@@ -1,14 +1,21 @@
-name: Super-Linter
-on: push
+name: Unit-tests
+
+on: [pull_request]
+
 jobs:
-  eslint:
-    name: lint code base
+  tests:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 16.x]
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Run Super-Linter
-        uses: github/super-linter@v4
-        env:
-          DEFUALT_BRANCH: main
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - uses: actions/checkout@v2
+      - name: Use node.js ${{matrix.node-version}}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{matrix.node-version}}
+
+      - name: npm install
+        run: npm ci
+      - name: tests
+        run: npm test
